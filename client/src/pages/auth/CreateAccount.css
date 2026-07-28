@@ -1,0 +1,567 @@
+/* =========================================
+   CREATE ACCOUNT PAGE
+========================================= */
+
+.auth-page {
+  min-height: 100vh;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 48px 24px;
+
+  background: #f8fafc;
+
+  color: var(--text-h);
+}
+
+
+/* =========================================
+   REMOVE DECORATIVE BACKGROUND
+========================================= */
+
+.background-grid,
+.glow,
+.data-flow {
+  display: none;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.auth-container {
+  width: 100%;
+
+  max-width: 520px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 32px;
+}
+
+
+.brand-logo {
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: var(--primary);
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+.brand span {
+  color: var(--text-h);
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.4px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.auth-header {
+  margin-bottom: 28px;
+}
+
+
+.eyebrow {
+  margin-bottom: 10px;
+
+  color: var(--primary);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+}
+
+
+.auth-header h1 {
+  color: var(--text-h);
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.8px;
+}
+
+
+.auth-header h1 span {
+  color: var(--primary);
+}
+
+
+.subtitle {
+  margin-top: 10px;
+
+  color: var(--text);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   AUTH CARD
+========================================= */
+
+.auth-card {
+  width: 100%;
+
+  padding: 30px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow-md);
+
+  text-align: left;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.auth-form {
+  width: 100%;
+}
+
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+
+.input-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--text-h);
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   INPUT WRAPPER
+========================================= */
+
+.input-wrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+
+.input-wrapper input {
+  width: 100%;
+
+  height: 46px;
+
+  padding: 0 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  background: var(--surface);
+
+  color: var(--text-h);
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+  color: var(--text-muted);
+
+  font-size: 13px;
+}
+
+
+.input-wrapper input:hover {
+  border-color: #cbd5e1;
+}
+
+
+.input-wrapper input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================
+   INPUT ICON
+========================================= */
+
+.input-icon {
+  display: none;
+}
+
+
+/* =========================================
+   PASSWORD ICON
+========================================= */
+
+.password-icon {
+  position: absolute;
+
+  top: 50%;
+
+  right: 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 4px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  transform: translateY(-50%);
+
+  transition: color 0.2s ease;
+}
+
+
+.password-icon:hover {
+  color: var(--primary);
+}
+
+
+/* =========================================
+   PASSWORD STRENGTH
+========================================= */
+
+.password-strength {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 8px;
+}
+
+
+.password-strength span {
+  height: 3px;
+
+  flex: 1;
+
+  border-radius: 4px;
+
+  background: var(--border);
+
+  transition: background 0.2s ease;
+}
+
+
+.password-strength span.strength-active {
+  background: var(--primary);
+}
+
+
+.password-strength p {
+  min-width: 118px;
+
+  margin-left: 8px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   TERMS
+========================================= */
+
+.terms {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  margin: 6px 0 22px;
+
+  color: var(--text);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  cursor: pointer;
+}
+.terms input {
+  width: 15px;
+
+  height: 15px;
+
+  margin-top: 1px;
+
+  accent-color: var(--primary);
+
+  cursor: pointer;
+}
+
+
+.terms b {
+  color: var(--primary);
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   CREATE ACCOUNT BUTTON
+========================================= */
+
+.create-btn {
+  width: 100%;
+
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: var(--primary);
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.create-btn:hover {
+  background: var(--primary-dark);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.create-btn:active {
+  transform: scale(0.99);
+}
+
+
+.create-btn:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.65;
+}
+
+
+.arrow {
+  font-size: 18px;
+
+  line-height: 1;
+}
+
+
+/* =========================================
+   VALIDATION
+========================================= */
+
+.error-message {
+  margin-top: 6px;
+
+  color: var(--danger);
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+.input-error input {
+  border-color: var(--danger);
+}
+
+
+.input-error input:focus {
+  box-shadow:
+    0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+
+.terms-error {
+  margin-top: -14px;
+
+  margin-bottom: 16px;
+}
+
+
+/* =========================================
+   SIGN IN
+========================================= */
+
+.signin-text {
+  margin-top: 22px;
+
+  color: var(--text);
+
+  font-size: 13px;
+}
+
+
+.signin-link {
+  margin-left: 5px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--primary);
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.signin-link:hover {
+  color: var(--primary-dark);
+
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer-text {
+  margin-top: 24px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .auth-page {
+    align-items: flex-start;
+
+    padding: 30px 16px;
+  }
+
+
+  .auth-container {
+    margin-top: 20px;
+  }
+
+
+  .brand {
+    margin-bottom: 26px;
+  }
+
+
+  .auth-header h1 {
+    font-size: 30px;
+  }
+
+
+  .auth-card {
+    padding: 22px;
+  }
+
+
+  .password-strength p {
+    min-width: 100px;
+
+    font-size: 10px;
+  }
+}

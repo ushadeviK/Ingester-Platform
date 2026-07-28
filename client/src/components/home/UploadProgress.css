@@ -1,0 +1,314 @@
+/* =========================================
+   UPLOAD PROGRESS
+========================================= */
+
+.upload-progress {
+  width: 100%;
+
+  padding: 20px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.progress-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+
+.progress-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+.progress-icon {
+  width: 32px;
+
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 7px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+
+.progress-title h3 {
+  margin: 0;
+
+  color: var(--text-h);
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.progress-status {
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   PERCENTAGE
+========================================= */
+
+.progress-percentage {
+  color: var(--primary);
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress-track {
+  width: 100%;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #e2e8f0;
+}
+
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--primary);
+
+  transition: width 0.4s ease;
+}
+
+
+/* =========================================
+   PROGRESS FOOTER
+========================================= */
+
+.progress-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 10px;
+}
+
+
+.progress-file-count {
+  color: var(--text);
+
+  font-size: 11px;
+}
+
+
+.progress-time {
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   COMPLETED
+========================================= */
+
+.upload-progress.completed {
+  border-color: #bbf7d0;
+
+  background: var(--success-bg);
+}
+
+
+.upload-progress.completed
+  .progress-icon {
+  background: #dcfce7;
+
+  color: var(--success);
+}
+
+
+.upload-progress.completed
+  .progress-fill {
+  background: var(--success);
+}
+
+
+.upload-progress.completed
+  .progress-percentage {
+  color: var(--success);
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.upload-progress.error {
+  border-color: #fecaca;
+
+  background: var(--danger-bg);
+}
+
+
+.upload-progress.error
+  .progress-icon {
+  background: #fee2e2;
+
+  color: var(--danger);
+}
+
+
+.upload-progress.error
+  .progress-fill {
+  background: var(--danger);
+}
+
+
+.upload-progress.error
+  .progress-percentage {
+  color: var(--danger);
+}
+
+
+/* =========================================
+   INDIVIDUAL FILE PROGRESS
+========================================= */
+
+.file-progress-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 20px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border-light);
+}
+
+
+.file-progress-item {
+  width: 100%;
+}
+
+
+.file-progress-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+}
+
+
+.file-progress-name {
+  max-width: 75%;
+
+  overflow: hidden;
+
+  color: var(--text-h);
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+.file-progress-percent {
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+.file-progress-track {
+  width: 100%;
+
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #f1f5f9;
+}
+
+
+.file-progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--primary);
+
+  transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .upload-progress {
+    padding: 16px;
+  }
+
+
+  .progress-title h3 {
+    font-size: 13px;
+  }
+
+
+  .progress-percentage {
+    font-size: 14px;
+  }
+}

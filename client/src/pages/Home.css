@@ -1,0 +1,561 @@
+/* =========================================
+   HOME PAGE
+========================================= */
+
+.home-page {
+  min-height: 100vh;
+
+  width: 100%;
+
+  padding-left: 248px;
+
+  background: var(--bg);
+
+  color: var(--text-h);
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.home-content {
+  min-height: 100vh;
+
+  padding: 32px 40px;
+}
+
+
+/* =========================================
+   HEADER SECTION
+========================================= */
+
+.home-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 36px;
+}
+
+
+.home-header-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+
+.home-eyebrow {
+  color: var(--primary);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.3px;
+
+  text-transform: uppercase;
+}
+
+
+.home-header h1 {
+  color: var(--text-h);
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.6px;
+}
+
+
+.home-header p {
+  color: var(--text);
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   HEADER ACTION
+========================================= */
+
+.home-header-action {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.home-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 11px;
+
+  border: 1px solid #bbf7d0;
+
+  border-radius: 6px;
+
+  background: var(--success-bg);
+
+  color: var(--success);
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.home-status-dot {
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--success);
+}
+
+
+/* =========================================
+   WORKSPACE CARD
+========================================= */
+
+.workspace-card {
+  width: 100%;
+
+  padding: 30px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow-sm);
+}
+
+
+.workspace-card-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 26px;
+}
+
+
+.workspace-card-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.workspace-card-title h2 {
+  color: var(--text-h);
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+
+.workspace-card-title p {
+  color: var(--text);
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   DATA SOURCE GRID
+========================================= */
+
+.data-source-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================
+   DATA SOURCE CARD
+========================================= */
+
+.data-source-card {
+  min-height: 150px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 20px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--surface);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.data-source-card:hover {
+  border-color: #bfdbfe;
+
+  box-shadow: var(--shadow-md);
+
+  transform: translateY(-2px);
+}
+
+
+.data-source-card.active {
+  border-color: var(--primary);
+
+  background: #f8fbff;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================
+   SOURCE TOP
+========================================= */
+
+.data-source-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+
+
+.data-source-icon {
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: var(--text);
+}
+
+
+.data-source-card.active .data-source-icon {
+  border-color: #dbeafe;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+
+.data-source-check {
+  width: 20px;
+
+  height: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  color: transparent;
+}
+
+
+.data-source-card.active .data-source-check {
+  border-color: var(--primary);
+
+  background: var(--primary);
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   SOURCE CONTENT
+========================================= */
+
+.data-source-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  margin-top: 16px;
+}
+
+
+.data-source-content h3 {
+  color: var(--text-h);
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+.data-source-content p {
+  color: var(--text);
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   UPLOAD SECTION
+========================================= */
+
+.upload-section {
+  margin-top: 28px;
+
+  padding-top: 28px;
+
+  border-top: 1px solid var(--border-light);
+}
+
+
+.upload-section-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+
+.upload-section-header h2 {
+  color: var(--text-h);
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+
+.upload-section-header span {
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   UPLOAD BOX
+========================================= */
+
+.upload-box {
+  width: 100%;
+
+  min-height: 180px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 28px;
+
+  border: 1px dashed #cbd5e1;
+
+  border-radius: 10px;
+
+  background: #fafafa;
+
+  text-align: center;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.upload-box:hover {
+  border-color: var(--primary);
+
+  background: #f8fbff;
+}
+
+
+.upload-box-icon {
+  width: 48px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  border-radius: 50%;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+
+.upload-box h3 {
+  color: var(--text-h);
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+.upload-box p {
+  margin-top: 5px;
+
+  color: var(--text);
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   UPLOAD BUTTON
+========================================= */
+
+.upload-btn {
+  height: 42px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  padding: 0 18px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: var(--primary);
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.upload-btn:hover {
+  background: var(--primary-dark);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .home-content {
+    padding: 28px;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .home-page {
+    padding-left: 220px;
+  }
+
+  .data-source-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .home-page {
+    padding-left: 72px;
+  }
+
+  .home-content {
+    padding: 24px 16px;
+  }
+
+  .home-header {
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  .home-header h1 {
+    font-size: 26px;
+  }
+
+  .workspace-card {
+    padding: 20px;
+  }
+}
