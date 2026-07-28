@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import apiCommand from "../../api/apiClient";
 
 import "./CreateAccount.css";
 
@@ -67,11 +68,9 @@ const CreateAccount = ({
     }));
   };
 
-  const BASE_URL = "https://dk927dff-8000.inc1.devtunnels.ms";
-
   const validateForm = (): FormErrors => {
     const newErrors: FormErrors = {};
-
+    
     const username = formData.username.trim();
     const email = formData.email.trim();
     const password = formData.password;
@@ -164,29 +163,22 @@ const CreateAccount = ({
     setIsLoading(true);
 
     try {
-      const response = await fetch(
-        `${BASE_URL}/auth/register`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: formData.username.trim(),
-            email: formData.email.trim(),
-            password: formData.password,
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(
-          errorText || "Account creation failed"
-        );
-      }
-
-      const data = await response.json();
+      const data = await apiCommand<{
+        user?: {
+          email?: string;
+          username?: string;
+        };
+        otp_code?: string;
+        otp_expires_at?: string;
+      }>({
+        endpoint: "/auth/register",
+        method: "POST",
+        payload: {
+          username: formData.username.trim(),
+          email: formData.email.trim(),
+          password: formData.password,
+        },
+      });
 
       localStorage.setItem(
         "ingester-accounts",
@@ -201,9 +193,10 @@ const CreateAccount = ({
       );
 
       onAccountCreated(
-        data?.sessionId || "frontend-session",
-        data?.mailId || formData.email.trim()
+        data?.user?.username || "frontend-session",
+        data?.user?.email || formData.email.trim()
       );
+      
     } catch (error) {
       setErrors({
         email:

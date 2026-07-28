@@ -12,7 +12,7 @@
 // 	return (
 // 		<header className="header">
 // 			<div className="header-left">
-// 				<h1>Welcome back, Usha 👋</h1>
+// 				<h1>Welcome back, </h1>
 // 				<p className="header-description">Choose a data source to start ingestion</p>
 // 			</div>
 // 		</header>

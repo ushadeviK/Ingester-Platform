@@ -1,100 +1,351 @@
-.source-selector {
-  position: relative;
+/* =========================================
+   DATA SOURCE SELECTOR
+========================================= */
 
+.data-source-selector {
   width: 100%;
-  max-width: 360px;
 }
 
-.source-select-btn {
-  width: 100%;
-  height: 48px;
 
+/* =========================================
+   HEADER
+========================================= */
+
+.data-source-selector-header {
   display: flex;
-  align-items: center;
+
+  align-items: flex-start;
+
   justify-content: space-between;
 
-  padding: 0 16px;
-
-  border: 1px solid #dbe3ee;
-  border-radius: 9px;
-
-  background: #ffffff;
-
-  color: #1e293b;
-
-  font-size: 15px;
-  font-weight: 500;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
+  margin-bottom: 18px;
 }
 
-.source-select-btn:hover {
-  border-color: #2563eb;
 
-  box-shadow:
-    0 4px 12px rgba(37, 99, 235, 0.1);
+.data-source-selector-title {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
 }
 
-.source-arrow {
-  font-size: 22px;
 
-  transition: 0.2s ease;
+.data-source-selector-title h2 {
+  margin: 0;
+
+  color: var(--text-h);
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
 }
 
-.arrow-open {
-  transform: rotate(180deg);
+
+.data-source-selector-title p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 13px;
 }
 
-.source-dropdown {
-  position: absolute;
 
-  top: 55px;
-  left: 0;
-  right: 0;
+/* =========================================
+   SOURCE COUNT
+========================================= */
 
-  z-index: 20;
+.source-count {
+  padding: 5px 9px;
 
-  padding: 6px;
+  border: 1px solid var(--border);
 
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border-radius: 6px;
 
-  background: #ffffff;
+  background: #f8fafc;
 
-  box-shadow:
-    0 15px 35px rgba(15, 23, 42, 0.15);
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  font-weight: 600;
 }
 
-.source-option {
-  width: 100%;
+
+/* =========================================
+   SOURCE GRID
+========================================= */
+
+.data-source-options {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================
+   SOURCE CARD
+========================================= */
+
+.data-source-option {
+  position: relative;
+
+  min-height: 160px;
 
   display: flex;
-  align-items: center;
 
-  gap: 10px;
+  flex-direction: column;
 
-  padding: 12px;
+  padding: 20px;
 
-  border: none;
-  border-radius: 7px;
+  border: 1px solid var(--border);
 
-  background: transparent;
+  border-radius: 10px;
 
-  color: #334155;
-
-  font-size: 14px;
-
-  text-align: left;
+  background: var(--surface);
 
   cursor: pointer;
 
-  transition: 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-.source-option:hover {
-  background: #eff6ff;
 
-  color: #2563eb;
+.data-source-option:hover {
+  border-color: #bfdbfe;
+
+  background: #fcfdff;
+
+  box-shadow: var(--shadow-md);
+
+  transform: translateY(-2px);
+}
+
+
+.data-source-option.selected {
+  border-color: var(--primary);
+
+  background: #f8fbff;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================
+   CARD TOP
+========================================= */
+
+.data-source-option-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+
+
+/* =========================================
+   SOURCE ICON
+========================================= */
+
+.source-icon {
+  width: 44px;
+
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: var(--text);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.data-source-option:hover .source-icon {
+  border-color: #dbeafe;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+
+.data-source-option.selected .source-icon {
+  border-color: #dbeafe;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+}
+
+
+/* =========================================
+   SELECT INDICATOR
+========================================= */
+
+.source-select-indicator {
+  width: 20px;
+
+  height: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  color: transparent;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.data-source-option.selected
+  .source-select-indicator {
+  border-color: var(--primary);
+
+  background: var(--primary);
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   SOURCE CONTENT
+========================================= */
+
+.source-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-top: 18px;
+}
+
+
+.source-content h3 {
+  margin: 0;
+
+  color: var(--text-h);
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+.source-content p {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   SOURCE STATUS
+========================================= */
+
+.source-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: auto;
+
+  padding-top: 14px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+
+  font-weight: 500;
+}
+
+
+.source-status-dot {
+  width: 5px;
+
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--success);
+}
+
+
+/* =========================================
+   DISABLED SOURCE
+========================================= */
+
+.data-source-option.disabled {
+  cursor: not-allowed;
+
+  opacity: 0.55;
+}
+
+
+.data-source-option.disabled:hover {
+  border-color: var(--border);
+
+  background: var(--surface);
+
+  box-shadow: none;
+
+  transform: none;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+  .data-source-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .data-source-option {
+    min-height: 145px;
+
+    padding: 18px;
+  }
 }

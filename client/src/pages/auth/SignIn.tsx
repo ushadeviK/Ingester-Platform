@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import apiCommand, { setStoredAccessToken } from "../../api/apiClient";
 import "./SignIn.css";
 
 type SignInProps = {
@@ -17,7 +18,7 @@ const SignIn = ({ onSignIn, onCreateAccount, onForgotPassword }: SignInProps) =>
 
   const [error, setError] = useState("");
 
-  const handleSubmit = (
+  const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
@@ -32,36 +33,59 @@ const SignIn = ({ onSignIn, onCreateAccount, onForgotPassword }: SignInProps) =>
       return;
     }
 
-    // validate against stored accounts (frontend-only)
-    const accountsJson = localStorage.getItem(
-      "ingester-accounts"
-    );
-
-    const accounts = accountsJson
-      ? JSON.parse(accountsJson)
-      : [];
-
-    const matched = accounts.find(
-      (a: any) => a.email === email.trim()
-    );
-
-    if (!matched) {
-      setError(
-        "No account found for this email"
-      );
-      return;
-    }
-
-    if (matched.password !== password) {
-      setError("Incorrect password");
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters");
       return;
     }
 
     setError("");
-    // store current signed-in user for profile/history
-    localStorage.setItem("ingester-current-user", matched.email);
 
-    onSignIn();
+    try {
+      const data = await apiCommand<{
+        access_token?: string;
+        token_type?: string;
+        user?: {
+          email?: string;
+          username?: string;
+          full_name?: string;
+        };
+      }>({
+        endpoint: "/auth/login",
+        method: "POST",
+        payload: {
+          identifier: email.trim(),
+          password,
+        },
+      });
+
+      if (data.access_token) {
+        setStoredAccessToken(data.access_token);
+      }
+
+      const signedInUser = data.user?.email || email.trim();
+      localStorage.setItem(
+        "ingester-current-user",
+        signedInUser
+      );
+
+      localStorage.setItem(
+        "ingester-session",
+        JSON.stringify({
+          accessToken: data.access_token,
+          user: data.user || {
+            email: signedInUser,
+          },
+        })
+      );
+
+      onSignIn();
+    } catch (caughtError) {
+      setError(
+        caughtError instanceof Error
+          ? caughtError.message
+          : "Sign in failed"
+      );
+    }
   };
 
   return (

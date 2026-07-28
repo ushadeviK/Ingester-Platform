@@ -77,9 +77,27 @@ function App() {
       {/* HOME */}
       {currentPage === "home" && (
         <Home
-          onLogout={() => {
+          onLogout={async () => {
+            try {
+              await fetch("/auth/logout", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("ingester-access-token") || ""}`,
+                },
+              });
+            } catch {
+              // ignore logout API failure and continue clearing local state
+            }
+
             localStorage.removeItem(
               "ingester-current-user"
+            );
+            localStorage.removeItem(
+              "ingester-access-token"
+            );
+            localStorage.removeItem(
+              "ingester-session"
             );
             setCurrentPage("sign-in");
           }}

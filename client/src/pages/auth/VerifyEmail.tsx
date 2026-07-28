@@ -1,4 +1,5 @@
 import { useState } from "react";
+import apiCommand, { setStoredAccessToken } from "../../api/apiClient";
 import "./VerifyEmail.css";
 
 type VerifyEmailProps = {
@@ -26,7 +27,7 @@ const VerifyEmail = ({
     setError("");
   };
 
-  const handleVerify = () => {
+  const handleVerify = async () => {
     if (otp.length !== 6) {
       setError("Please enter a valid 6-digit OTP");
       return;
@@ -34,10 +35,41 @@ const VerifyEmail = ({
 
     setIsLoading(true);
 
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      const data = await apiCommand<{
+        access_token?: string;
+        token_type?: string;
+        user?: {
+          email?: string;
+        };
+      }>({
+        endpoint: "/auth/verify-otp",
+        method: "POST",
+        payload: {
+          email: mailId,
+          otp_code: otp,
+        },
+      });
+
+      if (data.access_token) {
+        setStoredAccessToken(data.access_token);
+      }
+
+      localStorage.setItem(
+        "ingester-current-user",
+        data.user?.email || mailId
+      );
+
       onVerified();
-    }, 800);
+    } catch (caughtError) {
+      setError(
+        caughtError instanceof Error
+          ? caughtError.message
+          : "Verification failed"
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

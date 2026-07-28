@@ -1,123 +1,58 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* =========================================
+   SIGN IN PAGE
+========================================= */
 
 .signin-page {
   min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+
+  width: 100%;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  padding: 30px 20px;
-  background: #050b18;
-  color: #ffffff;
+
+  padding: 48px 24px;
+
+  background: #f8fafc;
+
+  color: var(--text-h);
 }
+
 
 /* =========================================
-   ANIMATED GRID
+   REMOVE DECORATIVE BACKGROUND
 ========================================= */
 
-.background-grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.18;
-  background-image:
-    linear-gradient(
-      rgba(73, 117, 255, 0.18) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(73, 117, 255, 0.18) 1px,
-      transparent 1px
-    );
-  background-size: 70px 70px;
-  animation: gridMove 18s linear infinite;
-}
-
-@keyframes gridMove {
-  from {
-    transform: translate(0, 0);
-  }
-
-  to {
-    transform: translate(70px, 70px);
-  }
-}
-
-/* =========================================
-   BACKGROUND GLOW
-========================================= */
-
+.background-grid,
 .glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.25;
-  pointer-events: none;
+  display: none;
 }
 
-.glow-one {
-  width: 420px;
-  height: 420px;
-  background: #2563eb;
-  top: -180px;
-  left: -140px;
-  animation: floatOne 8s ease-in-out infinite;
-}
-
-.glow-two {
-  width: 360px;
-  height: 360px;
-  background: #7c3aed;
-  right: -140px;
-  bottom: -150px;
-  animation: floatTwo 10s ease-in-out infinite;
-}
-
-@keyframes floatOne {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-
-  50% {
-    transform: translate(70px, 60px);
-  }
-}
-
-@keyframes floatTwo {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-
-  50% {
-    transform: translate(-60px, -50px);
-  }
-}
 
 /* =========================================
    SIGN IN CARD
 ========================================= */
 
 .signin-card {
-  position: relative;
-  z-index: 2;
   width: 100%;
+
   max-width: 450px;
-  padding: 42px 38px;
-  border: 1px solid rgba(148, 163, 184, 0.15);
-  border-radius: 22px;
-  background: rgba(15, 23, 42, 0.72);
-  backdrop-filter: blur(22px);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.35),
-    inset 0 1px rgba(255, 255, 255, 0.05);
+
+  padding: 36px 32px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow-md);
+
+  text-align: left;
 }
+
 
 /* =========================================
    BRAND
@@ -125,62 +60,98 @@
 
 .signin-brand {
   display: inline-flex;
+
   align-items: center;
+
   gap: 12px;
-  margin-bottom: 36px;
-  font-size: 23px;
+
+  margin-bottom: 32px;
+
+  color: var(--text-h);
+
+  font-size: 20px;
+
   font-weight: 700;
 }
 
+
 .signin-logo {
   width: 42px;
+
   height: 42px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  border-radius: 13px;
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #4f46e5
-  );
-  box-shadow:
-    0 0 30px rgba(37, 99, 235, 0.5);
-  font-size: 21px;
+
+  border-radius: 9px;
+
+  background: var(--primary);
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  box-shadow: var(--shadow-sm);
 }
+
 
 /* =========================================
    HEADER
 ========================================= */
 
 .signin-header {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
+
 
 .eyebrow {
-  margin-bottom: 12px;
-  color: #60a5fa;
-  font-size: 10px;
+  margin-bottom: 10px;
+
+  color: var(--primary);
+
+  font-size: 11px;
+
   font-weight: 700;
-  letter-spacing: 2px;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
 }
+
 
 .signin-header h1 {
-  color: #ffffff;
-  font-size: 36px;
-  line-height: 1.1;
-  letter-spacing: -1.5px;
+  color: var(--text-h);
+
+  font-size: 34px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.8px;
 }
+
 
 .signin-header h1 span {
-  color: #60a5fa;
+  color: var(--primary);
 }
 
+
 .signin-header p:last-child {
-  margin-top: 14px;
-  color: #94a3b8;
+  margin-top: 10px;
+
+  color: var(--text);
+
   font-size: 14px;
+
+  line-height: 1.5;
 }
+
 
 /* =========================================
    FORM
@@ -190,17 +161,24 @@
   width: 100%;
 }
 
+
 .signin-input-group {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
+
 
 .signin-input-group label {
   display: block;
-  margin-bottom: 8px;
-  color: #cbd5e1;
+
+  margin-bottom: 7px;
+
+  color: var(--text-h);
+
   font-size: 13px;
+
   font-weight: 600;
 }
+
 
 /* =========================================
    PASSWORD LABEL ROW
@@ -208,26 +186,41 @@
 
 .password-label-row {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 }
 
+
 .password-label-row label {
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
+
 
 .forgot-password {
+  padding: 0;
+
   border: none;
+
   background: transparent;
-  color: #60a5fa;
+
+  color: var(--primary);
+
   font-size: 11px;
+
   cursor: pointer;
-  transition: 0.3s ease;
+
+  transition: color 0.2s ease;
 }
 
+
 .forgot-password:hover {
-  color: #93c5fd;
+  color: var(--primary-dark);
+
+  text-decoration: underline;
 }
+
 
 /* =========================================
    INPUT
@@ -235,40 +228,76 @@
 
 .signin-input-wrapper {
   position: relative;
+
+  width: 100%;
 }
+
 
 .signin-input-icon {
   position: absolute;
-  left: 15px;
+
   top: 50%;
+
+  left: 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: var(--text-muted);
+
   transform: translateY(-50%);
-  color: #64748b;
-  font-size: 16px;
+
   pointer-events: none;
 }
 
+
 .signin-input-wrapper input {
   width: 100%;
-  height: 52px;
+
+  height: 46px;
+
   padding: 0 46px;
-  border: 1px solid #26344d;
-  border-radius: 10px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
   outline: none;
-  background: rgba(15, 23, 42, 0.8);
-  color: #ffffff;
+
+  background: var(--surface);
+
+  color: var(--text-h);
+
   font-size: 14px;
-  transition: 0.3s ease;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
 
 .signin-input-wrapper input::placeholder {
-  color: #64748b;
+  color: var(--text-muted);
+
+  font-size: 13px;
 }
 
-.signin-input-wrapper input:focus {
-  border-color: #3b82f6;
-  box-shadow:
-    0 0 0 4px rgba(59, 130, 246, 0.1);
+
+.signin-input-wrapper input:hover {
+  border-color: #cbd5e1;
 }
+
+
+.signin-input-wrapper input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
 
 /* =========================================
    PASSWORD ICON
@@ -276,30 +305,46 @@
 
 .password-icon {
   position: absolute;
-  right: 14px;
+
   top: 50%;
+
+  right: 12px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  transform: translateY(-50%);
-  border: none;
-  background: transparent;
-  color: #64748b;
-  cursor: pointer;
+
   padding: 4px;
-  transition: all 0.25s ease;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition: color 0.2s ease;
 }
+
 
 .password-icon:hover {
-  color: #60a5fa;
-  transform: translateY(-50%) scale(1.08);
+  color: var(--primary);
 }
 
+
 .password-icon:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--primary);
+
   outline-offset: 2px;
+
   border-radius: 5px;
 }
+
 
 /* =========================================
    ERROR
@@ -307,10 +352,14 @@
 
 .signin-error {
   margin: -8px 0 14px;
-  color: #f87171;
+
+  color: var(--danger);
+
   font-size: 12px;
+
   font-weight: 500;
 }
+
 
 /* =========================================
    SIGN IN BUTTON
@@ -318,72 +367,108 @@
 
 .signin-btn {
   width: 100%;
-  height: 52px;
+
+  height: 46px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
-  padding: 0 18px;
+
+  padding: 0 16px;
+
   border: none;
-  border-radius: 10px;
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #4f46e5
-  );
+
+  border-radius: 7px;
+
+  background: var(--primary);
+
   color: #ffffff;
+
   font-size: 14px;
-  font-weight: 700;
+
+  font-weight: 600;
+
   cursor: pointer;
-  transition: all 0.3s ease;
+
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
 
 .signin-btn:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 30px rgba(37, 99, 235, 0.35);
+  background: var(--primary-dark);
+
+  box-shadow: var(--shadow-md);
 }
+
+
+.signin-btn:active {
+  transform: scale(0.99);
+}
+
 
 .signin-btn .arrow {
-  font-size: 20px;
-  transition: transform 0.3s ease;
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
 }
 
+
 .signin-btn:hover .arrow {
-  transform: translateX(5px);
+  transform: translateX(3px);
 }
+
 
 /* =========================================
    CREATE ACCOUNT
 ========================================= */
 
 .create-account-text {
-  margin-top: 24px;
-  color: #64748b;
+  margin-top: 22px;
+
+  color: var(--text);
+
   text-align: center;
+
   font-size: 13px;
 }
 
+
 .create-account-text span {
   margin-left: 4px;
-  color: #60a5fa;
+
+  color: var(--primary);
+
   font-weight: 600;
+
   cursor: pointer;
 }
 
+
 .create-account-text span:hover {
-  color: #93c5fd;
+  color: var(--primary-dark);
+
+  text-decoration: underline;
 }
+
 
 /* =========================================
    FOOTER
 ========================================= */
 
 .signin-footer {
-  margin-top: 32px;
-  color: #475569;
+  margin-top: 24px;
+
+  color: var(--text-muted);
+
   text-align: center;
+
   font-size: 11px;
 }
+
 
 /* =========================================
    RESPONSIVE
@@ -391,12 +476,18 @@
 
 @media (max-width: 600px) {
   .signin-page {
-    padding: 20px 16px;
+    align-items: flex-start;
+
+    padding: 30px 16px;
   }
 
+
   .signin-card {
-    padding: 32px 22px;
+    margin-top: 20px;
+
+    padding: 30px 22px;
   }
+
 
   .signin-header h1 {
     font-size: 30px;
